@@ -1,0 +1,22 @@
+{% extends 'rooms/base.html' %}
+
+{% block content %}
+<div class='col-12 col-md-4'>
+  <div class='card'>
+    <div class='card-body'>
+      <h5 class="card-title">{{room.name}}</h5>
+
+      <form method='post' action= '{% url "rooms:create" room.id %}'>
+        {% csrf_token %}
+        <input type="text">
+        <button class='btn btn-link'>Add Comment</button>
+      </form>
+
+      {% for comment in room.comment_set.all %}
+      <span>{{comment.text}}</span>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endblock content %}

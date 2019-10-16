@@ -6,9 +6,10 @@
     <div class='card-body'>
       <h5 class="card-title">{{room.name}}</h5>
 
-      <form method='post' action= '{% url "rooms:create" room.id %}'>
+      <form method='post'action='{% url "rooms:create_comment" room.id %}'>
         {% csrf_token %}
-        <input type="text">
+        <input type="text" name='text'>
+        <!-- <a href='{% url "rooms:create_comment" room.id %}'></a> -->
         <button class='btn btn-link'>Add Comment</button>
       </form>
 

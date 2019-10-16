@@ -7,7 +7,9 @@
   </head>
   <body>
     <div class='container'>
+      <a href="{% url 'rooms:list' %}">Home</a>
       {% block content %}
       {% endblock content %}
+    </div>
   </body>
 </html>

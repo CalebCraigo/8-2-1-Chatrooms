@@ -24,13 +24,13 @@ class RoomDetailView (generic.DetailView):
         return HttpResponseRedirect(reverse('rooms:detail', args=(pk,)))
 
 
-class UserRoomView(generic.Listview):
-    model = Room
-    template_name = 'rooms/user_room_list.html'
-
-    def add_room(request, pk):
-        room = Room()
-        room.name = pk
+# class UserRoomView(generic.Listview):
+#     model = Room
+#     template_name = 'rooms/user_room_list.html'
+#
+#     def add_room(request, pk):
+#         room = Room()
+#         room.name = pk
 
 
 # def add_comment(self, pk):

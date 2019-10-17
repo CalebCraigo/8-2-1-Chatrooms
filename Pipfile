@@ -12,6 +12,8 @@ whitenoise = "==3.3.1"
 dj-database-url = "*"
 psycopg2-binary = "*"
 pillow = "*"
+django-crispy-forms = "*"
+django-parsley = "*"
 
 [requires]
 python_version = "3.7"

@@ -6,15 +6,20 @@
     <div class='card-body'>
       <h5 class="card-title">{{room.name}}</h5>
 
+      <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
+        {% csrf_token %}
+        <button class='btn btn-link'>Add to Room List</button>
+      </form>
+
       <form method='post'action='{% url "rooms:create_comment" room.id %}'>
         {% csrf_token %}
         <input type="text" name='text'>
-        <!-- <a href='{% url "rooms:create_comment" room.id %}'></a> -->
         <button class='btn btn-link'>Add Comment</button>
       </form>
 
       {% for comment in room.comment_set.all %}
-      <span>{{comment.text}}</span>
+      <span>Comment: {{comment.text}} Author: {{comment.author}}</span>
+
       {% endfor %}
     </div>
 

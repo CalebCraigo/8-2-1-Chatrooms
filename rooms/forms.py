@@ -7,7 +7,7 @@ from .models import Room, Comment
 
 
 # @parsleyfy
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['text']
+# class CommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Comment
+#         fields = ['text']

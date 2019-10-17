@@ -18,10 +18,11 @@ class Room(models.Model):
 
 class Comment(models.Model):
     text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE,)
     room = models.ForeignKey(Room, on_delete=models.CASCADE,)
 
     def __str__(self):
         return self.text[:50]
 
     def get_absolute_url(self):
-        return reverse('rooms:detail')
+        return reverse('rooms:detail', args=(self.room_id,))

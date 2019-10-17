@@ -5,8 +5,11 @@
 <div class='col-12 col-md-4'>
   <div class='card'>
     <div class='card-body'>
-      <h5 class="card-title"><a href="{% url 'rooms:detail' room.id %}">{{room.name}}</a></h5>
-
+      <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
+        {% csrf_token %}
+        <h5 class="card-title"><a href="{% url 'rooms:detail' room.id %}">{{room.name}}</a></h5>
+        <button class='btn btn-link'>Add to Room List</button>
+      </form>
     </div>
   </div>
 </div>

@@ -1,0 +1,21 @@
+{% extends 'rooms/base.html' %}
+{% block content %}
+<section>
+  <h2>Log In</h2>
+</section>
+
+<div>
+  <section>
+
+    <form method = 'post'>
+      {% csrf_token %}
+      {{form.as_p}}
+      <button>Log In</button>
+    </form>
+
+  <p>Don't have an account? Sign up below!</p>
+  <a href ="{% url 'accounts:signup' %}">Sign Up</a>
+  </section>
+</div>
+
+{% endblock content%}

@@ -8,6 +8,8 @@
   <body>
     <div class='container'>
       <a href="{% url 'rooms:list' %}">Home</a>
+      <a href="{% url 'accounts:login' %}">Login</a>
+      <a href="{% url 'logout' %}"><span>Log Out</span></a>
       {% block content %}
       {% endblock content %}
     </div>

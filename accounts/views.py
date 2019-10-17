@@ -12,6 +12,10 @@ class SignUpView(generic.CreateView):
     template_name = 'signup.html'
 
 
+class LogOutView(generic.TemplateView):
+    template_name = 'registration/logout.html'
+
+
 class ProfileCreateView(generic.CreateView):
     model = Profile
     template_name = 'registration/profile_create.html'
@@ -21,7 +25,7 @@ class ProfileCreateView(generic.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-        
+
 
 class ProfileDetailView(generic.DetailView):
     model = Profile

@@ -4,7 +4,7 @@ from django.views import generic
 from django.urls import reverse_lazy, reverse
 
 from .models import Room, Comment
-# from .forms import CommentForm
+from .forms import NewRoomForm
 
 
 class RoomListView(generic.ListView):
@@ -15,6 +15,11 @@ class RoomListView(generic.ListView):
 class RoomDetailView (generic.DetailView):
     model = Room
     template_name = 'rooms/room_detail.html'
+
+
+class NewRoomView(generic.CreateView):
+    form_class = NewRoomForm
+    template_name = 'rooms/create_room.html'
 
 
 class CommentCreateView(generic.CreateView):
@@ -40,4 +45,4 @@ def add_room(request, pk):
     room.users.add(request.user)
     room.save()
 
-    return HttpResponseRedirect(reverse_lazy('rooms:user_rooms', args=(pk,)))
+    return HttpResponseRedirect(reverse_lazy('rooms:user_rooms'))

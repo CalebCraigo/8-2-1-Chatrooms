@@ -8,8 +8,13 @@
   <body>
     <div class='container'>
       <a href="{% url 'rooms:list' %}">Home</a>
-      <a href="{% url 'accounts:login' %}">Login</a>
+      <a href="{% url 'rooms:user_rooms' %}">Your Rooms</a>
+      {% if not request.user.is_authenticated %}
+      <a href="{% url 'login' %}">Login</a>
+      {% else %}
       <a href="{% url 'logout' %}"><span>Log Out</span></a>
+      <a href="{% url 'rooms:create_room' %}">Create a Room</a>
+      {% endif %}
       {% block content %}
       {% endblock content %}
     </div>

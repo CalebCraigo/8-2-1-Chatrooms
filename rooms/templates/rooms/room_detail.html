@@ -5,18 +5,20 @@
   <div class='card'>
     <div class='card-body'>
       <h5 class="card-title">{{room.name}}</h5>
-
+      {% if not request.user.is_authenticated %}
+      <p>Log In to add this room to your "My Rooms" list or to add a comment.</p>
+      <a href="{% url 'accounts:login' %}">Login</a>
+      {% else %}
       <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
         {% csrf_token %}
         <button class='btn btn-link'>Add to Room List</button>
       </form>
-
       <form method='post'action='{% url "rooms:create_comment" room.id %}'>
         {% csrf_token %}
         <input type="text" name='text'>
         <button class='btn btn-link'>Add Comment</button>
       </form>
-
+      {% endif %}
       {% for comment in room.comment_set.all %}
       <span>Comment: {{comment.text}} Author: {{comment.author}}</span>
 

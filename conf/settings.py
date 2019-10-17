@@ -140,6 +140,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+LOGIN_REDIRECT_URL = 'rooms:list'
+LOGOUT_REDIRECT_URL = 'accounts:logout'
+
+
 # By default MEDIA_URl and MEDIA_ROOT are empty and not displayed
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

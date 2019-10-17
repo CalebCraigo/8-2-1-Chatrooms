@@ -1,0 +1,10 @@
+{% extends 'rooms/base.html' %}
+
+{% block content %}
+<form method='post'action='{% url "rooms:create_room" %}'>
+  {% csrf_token %}
+  <input type="text" name='text'>
+  <button class='btn btn-link'>Create Room</button>
+</form>
+
+{% endblock content %}

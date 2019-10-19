@@ -1,30 +1,39 @@
 {% extends 'rooms/base.html' %}
 
 {% block content %}
-<div class='col-12 col-md-4'>
-  <div class='card'>
-    <div class='card-body'>
-      <h5 class="card-title">{{room.name}}</h5>
+<div class='row justify-content-center'>
+  <div class='roomBox col-md-10'>
+      <div class='room_header'>
+        <h5 class="card-title">{{room.name}}</h5>
+      </div>
+
+      <ul class='row'>
+      {% for comment in room.comment_set.all %}
+
+      <li class='chat_bubble col-md-10'>
+        <p>Comment: {{comment.text}}</p>
+        <p>Author: {{comment.author}}</p>
+        {% if user.id == comment.author.id %}
+        <a href="{% url 'rooms:delete' comment.id %}">Delete Comment</a
+        {% endif %}
+      </li>
+
+      {% endfor %}
+      </ul>
       {% if not request.user.is_authenticated %}
-      <p>Log In to add this room to your "My Rooms" list or to add a comment.</p>
+      <p>Log In to get in on the discussion or to add this room to your "My Rooms" list!</p>
       <a href="{% url 'accounts:login' %}">Login</a>
       {% else %}
-      <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
-        {% csrf_token %}
-        <button class='btn btn-link'>Add to Room List</button>
-      </form>
       <form method='post'action='{% url "rooms:create_comment" room.id %}'>
         {% csrf_token %}
         <input type="text" name='text'>
         <button class='btn btn-link'>Add Comment</button>
       </form>
+      <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
+        {% csrf_token %}
+        <button class='btn btn-link'>Add to Room List</button>
+      </form>
       {% endif %}
-      {% for comment in room.comment_set.all %}
-      <span>Comment: {{comment.text}} Author: {{comment.author}}</span>
-
-      {% endfor %}
     </div>
-
-  </div>
 </div>
 {% endblock content %}

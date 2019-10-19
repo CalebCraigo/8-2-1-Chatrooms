@@ -2,6 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy, reverse
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 
 from .models import Room, Comment
 from .forms import NewRoomForm
@@ -32,11 +34,30 @@ class CommentCreateView(generic.CreateView):
         return super().form_valid(form)
 
 
+class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Comment
+
+    def get_object(self, queryset=None):
+        comment = super(CommentDeleteView, self).get_object()
+        if not comment.author == self.request.user:
+            raise Http404
+        return comment
+
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        room_id = self.object.room.id
+
+        self.object.delete()
+        return HttpResponseRedirect(reverse_lazy('rooms:detail', args=(room_id,)))
+
+
 class UserRoomView(generic.ListView):
     model = Room
     template_name = 'rooms/user_room_list.html'
     fields = '__all__'
     def get_queryset(self):
+
         return Room.objects.filter(users=self.request.user)
 
 

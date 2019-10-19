@@ -2,16 +2,14 @@
 
 {% block content %}
 {% for room in object_list %}
-<div class='col-12 col-md-4'>
-  <div class='card'>
-    <div class='card-body'>
+<div class='row justify-content-center'>
+  <div class='roomBox col-md-10'>
       <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
         {% csrf_token %}
-        <h5 class="card-title"><a href="{% url 'rooms:detail' room.id %}">{{room.name}}</a></h5>
-        <button class='btn btn-link'>Add to Room List</button>
+        <h5 class="roomName col-md-9"><a href="{% url 'rooms:detail' room.id %}">{{room.name}}</a></h5>
+        <button class='addroombtn col-md-2 btn btn-link'>Add to Room List</button>
       </form>
     </div>
-  </div>
 </div>
 {% endfor %}
 {% endblock content %}

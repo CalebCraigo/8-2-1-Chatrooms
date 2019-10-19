@@ -8,7 +8,7 @@
       {% if object_list %}
       {% for object in object_list %}
 
-      <span>Room: {{object.name}}</span>
+      <h5 class="card-title"><a href="{% url 'rooms:detail' object.id %}">{{object.name}}</a></h5>
 
       {% endfor %}
 

@@ -6,6 +6,7 @@ from . import views
 app_name = 'rooms'
 
 urlpatterns = [
+    path('<int:pk>/delete/', views.CommentDeleteView.as_view(), name='delete'),
     path('rooms/new', views.NewRoomView.as_view(), name='create_room'),
     path('<int:pk>/comment/new/', views.CommentCreateView.as_view(), name='create_comment'),
     path('user/rooms/', views.UserRoomView.as_view(), name='user_rooms'),

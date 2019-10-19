@@ -1,0 +1,35 @@
+body {
+  box-sizing: border-box;
+}
+
+.navBar {
+  align-content: center;
+  text-align: center;
+}
+
+.roomBox {
+  border: solid .5px grey;
+  margin-top: 1%;
+  border-radius: 10px;
+}
+
+.roomName {
+  display: inline-block;
+  margin-top: 2.5%;
+  margin-bottom: 0;
+}
+
+.addroombtn {
+  display: inline-block;
+}
+
+.room_header {
+  text-align: center;
+  margin-top: 1%;
+}
+
+.chat_bubble {
+  border: solid .5px grey;
+  margin-top: 1%;
+  border-radius: 10px;
+}

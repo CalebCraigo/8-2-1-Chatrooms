@@ -7,33 +7,37 @@
         <h5 class="card-title">{{room.name}}</h5>
       </div>
 
-      <ul class='row'>
+      <ul class='chat_list row justify-content-center'>
       {% for comment in room.comment_set.all %}
 
       <li class='chat_bubble col-md-10'>
-        <p>Comment: {{comment.text}}</p>
-        <p>Author: {{comment.author}}</p>
+        <p class='comment'>Comment: {{comment.text}}</p>
+        <p class='author'>Author: {{comment.author}}</p>
         {% if user.id == comment.author.id %}
-        <a href="{% url 'rooms:delete' comment.id %}">Delete Comment</a
+        <a class='delete_comment' href="{% url 'rooms:delete' comment.id %}">Delete Comment</a
         {% endif %}
       </li>
 
       {% endfor %}
       </ul>
-      {% if not request.user.is_authenticated %}
-      <p>Log In to get in on the discussion or to add this room to your "My Rooms" list!</p>
-      <a href="{% url 'accounts:login' %}">Login</a>
-      {% else %}
-      <form method='post'action='{% url "rooms:create_comment" room.id %}'>
-        {% csrf_token %}
-        <input type="text" name='text'>
-        <button class='btn btn-link'>Add Comment</button>
-      </form>
-      <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
-        {% csrf_token %}
-        <button class='btn btn-link'>Add to Room List</button>
-      </form>
-      {% endif %}
+      <section class='row'>
+        {% if not request.user.is_authenticated %}
+        <p>Log In to get in on the discussion or to add this room to your "My Rooms" list!</p>
+        <a href="{% url 'accounts:login' %}">Login</a>
+        {% else %}
+        <form class='add_comment_form' method='post'action='{% url "rooms:create_comment" room.id %}'>
+          {% csrf_token %}
+          <input class='comment_box' type="text" name='text' value='Your Comment: '>
+          <button class='add_comment btn btn-link'>Add Comment</button>
+        </form>
+        </section>
+        <section class='row'
+        <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
+          {% csrf_token %}
+          <button class='add_room_btn btn btn-link'>Add to Room List</button>
+        </form>
+        {% endif %}
+      </section>
     </div>
 </div>
 {% endblock content %}

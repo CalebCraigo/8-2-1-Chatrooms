@@ -28,7 +28,7 @@
         {% else %}
         <form class='add_comment_form' method='post'action='{% url "rooms:create_comment" room.id %}'>
           {% csrf_token %}
-          <input class='comment_box' type="text" name='text' value='Your Comment: '>
+          <input class='comment_box' type="text" name='text'>
           <button class='add_comment btn btn-link'>Add Comment</button>
         </form>
         </section>

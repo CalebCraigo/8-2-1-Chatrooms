@@ -6,7 +6,7 @@
   <div class='roomBox col-md-10'>
       <form method='post'action='{% url "rooms:user_add_rooms" room.id %}'>
         {% csrf_token %}
-        <h5 class="roomName col-md-9"><a href="{% url 'rooms:detail' room.id %}">{{room.name}}</a></h5>
+        <h5 class="roomName col-md-9"><a class='room_name' href="{% url 'rooms:detail' room.id %}">{{room.name}}</a></h5>
         <button class='addroombtn col-md-2 btn btn-link'>Add to Room List</button>
       </form>
     </div>

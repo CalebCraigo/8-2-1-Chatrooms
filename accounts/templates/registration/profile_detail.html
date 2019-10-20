@@ -1,4 +1,23 @@
-<div>{{ object.user }}</div>
-<div>{{ object.bio }}</div>
-<div>{{ object.location }}</div>
-<img src='{{ object.avatar.url }}' alt='{{ avatar.user }}'>
+{% extends 'rooms/base.html' %}
+
+{% block content %}
+
+<section class='row justify-content-center'>
+  <h1 class='profile_header'>Your Profile</h1>
+</section>
+<section class='row justify-content-center'>
+  <img class='profileimg' src='{{ object.avatar.url }}' alt='{{ avatar.user }}'>
+</section>
+<section class='row justify-content-center'>
+  <h2 class='profile_username'>Username: {{ object.user }}</h2>
+</section>
+<section class='row justify-content-center'>
+  <p class='profile_location'>Location: {{ object.location }}</p>
+</section>
+<section class='row justify-content-center'>
+  <p class='profile_bio'>Bio: {{ object.bio }}</p>
+</section>
+
+
+
+{% endblock content %}

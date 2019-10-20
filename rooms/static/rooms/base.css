@@ -1,4 +1,6 @@
-body {
+
+.body {
+  background-color: #222529;
   box-sizing: border-box;
 }
 
@@ -7,10 +9,15 @@ body {
   text-align: center;
 }
 
+.nav_text {
+  color: #FFF;
+}
+
 .roomBox {
   border: solid .5px grey;
   margin-top: 1%;
   border-radius: 10px;
+  background-color: #1A1D21;
 }
 
 .roomName {
@@ -19,13 +26,19 @@ body {
   margin-bottom: 0;
 }
 
+.room_name{
+  color: #FFF;
+}
+
 .addroombtn {
   display: inline-block;
+  color: #FFF;
 }
 
 .room_header {
   text-align: center;
   margin-top: 1%;
+  color: #FFF;
 }
 
 .chat_list{
@@ -38,6 +51,8 @@ body {
   border-radius: 10px;
   padding-bottom: 1%;
   list-style-type: none;
+  background-color: #222529;
+  color: #FFF;
 }
 
 .comment {
@@ -55,6 +70,7 @@ body {
   padding-bottom: 1%;
   margin-bottom: 0%;
   font-size: 8pt;
+  color: #FFF;
 }
 
 .add_comment_form{
@@ -64,18 +80,82 @@ body {
 .add_comment {
   margin-top: 2%;
   margin-left: 26%;
+  color: #FFF;
+}
+
+.commentimg{
+  width: 10%;
+  border-radius: 10px;
 }
 
 .comment_box {
   width: 280%;
   margin-left: 27.7%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid .5px grey;
   font-size: 10pt;
+  background-color: #3F4451;
+  color: #FFF;
   /* padding-left: 4%; */
 }
 
 .add_room_btn {
   margin-left: 7.5%;
   padding-bottom: 1% !important;
+  color: #FFF;
+}
+
+.user_rooms {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.logout {
+  margin-top: 2%;
+  color: #fff;
+}
+
+
+.profileimg {
+  width: 30%;
+  border-radius: 10px;
+}
+
+.your_room_header {
+  color: #fff;
+  margin-top: 1%;
+}
+
+.profile_header {
+  color: #fff;
+}
+
+.profile_username {
+  color: #fff;
+  margin-top: 1%;
+}
+
+.profile_location {
+  color: #fff;
+}
+
+.profile_bio {
+  color: #fff;
+}
+
+.create_room_input {
+  border-radius: 5px;
+}
+
+.signup_text {
+  color: #fff;
+}
+
+.login_form {
+  color: #fff;
+}
+
+.login_text {
+  margin-left: 18%;
+  color: #fff;
 }

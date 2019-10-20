@@ -5,16 +5,17 @@
 </section>
 
 <div>
-  <section>
+  <section class='row justify-content-center'>
 
     <form method = 'post'>
       {% csrf_token %}
-      {{form.as_p}}
+      <p class='login_form'>{{form.as_p}}</p>
       <button>Log In</button>
     </form>
-
-  <p>Don't have an account? Sign up below!</p>
-  <a href ="{% url 'accounts:signup' %}">Sign Up</a>
+  </section>
+  <section class='row justify-content-center'>
+  <p class='signup_text'>Don't have an account? Click Here! =></p>
+  <a class='signup_text' href ="{% url 'accounts:signup' %}">Sign Up</a>
   </section>
 </div>
 

@@ -12,6 +12,7 @@
 
       <li class='chat_bubble col-md-10'>
         <p class='comment'>Comment: {{comment.text}}</p>
+        <!-- <img class='commentimg' src='{{ user.avatar.url }}' alt='{{ avatar.author }}'> -->
         <p class='author'>Author: {{comment.author}}</p>
         {% if user.id == comment.author.id %}
         <a class='delete_comment' href="{% url 'rooms:delete' comment.id %}">Delete Comment</a
@@ -22,7 +23,7 @@
       </ul>
       <section class='row'>
         {% if not request.user.is_authenticated %}
-        <p>Log In to get in on the discussion or to add this room to your "My Rooms" list!</p>
+        <p class='login_text'>Log In to get in on the discussion or to add this room to your "My Rooms" list! </p>
         <a href="{% url 'accounts:login' %}">Login</a>
         {% else %}
         <form class='add_comment_form' method='post'action='{% url "rooms:create_comment" room.id %}'>

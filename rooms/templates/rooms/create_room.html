@@ -2,12 +2,12 @@
 
 {% block content %}
 <div class='row justify-content-center'>
-  <h2 class='heads'>Create New Room</h2>
+  <h2 class='profile_username'>Create New Room</h2>
 </div>
 <section class='row justify-content-center'>
   <form method='post'action='{% url "rooms:create_room" %}'>
     {% csrf_token %}
-    <input type="text" name='text'>
+    <input class='create_room_input' type="text" name='text'>
     <button class='btn btn-link'>Create Room</button>
   </form>
 </section>

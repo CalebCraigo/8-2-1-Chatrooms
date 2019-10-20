@@ -57,7 +57,7 @@ class UserRoomView(generic.ListView):
     template_name = 'rooms/user_room_list.html'
     fields = '__all__'
     def get_queryset(self):
-
+        
         return Room.objects.filter(users=self.request.user)
 
 

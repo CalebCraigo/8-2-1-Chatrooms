@@ -23,7 +23,8 @@
 .roomName {
   display: inline-block;
   margin-top: 2.5%;
-  margin-bottom: 0;
+
+  margin-bottom: 2.5%;
 }
 
 .room_name{
@@ -158,4 +159,18 @@
 .login_text {
   margin-left: 18%;
   color: #fff;
+}
+
+.home_login_text {
+  margin-left: 10%;
+  margin-bottom: 0;
+  padding-top: 2.5%;
+  color: #fff;
+
+}
+
+.home_login {
+  padding-top: 2.5%;
+  margin-bottom: 2.5%;
+  padding-left: 1%;
 }

@@ -10,7 +10,8 @@
     <ul class='user_rooms row justify-content-around'>
       {% if object_list %}
       {% for object in object_list %}
-
+      <a class='nav_text col-md-2' href="{% url 'login' %}">Login</a>
+      {% else %}
       <li>
       <a class='nav_text' href="{% url 'rooms:detail' object.id %}">{{object.name}}</a>
       </li>

@@ -6,12 +6,12 @@
   <div class='roomBox col-md-10'>
     <section class='row justify-content-center'>
       <h5 class='your_room_header'>Your Rooms</h5>
-    </section>
-    <ul class='user_rooms row justify-content-around'>
-      {% if object_list %}
-      {% for object in object_list %}
+      {% if not request.user.is_authenticated %}
       <a class='nav_text col-md-2' href="{% url 'login' %}">Login</a>
       {% else %}
+    </section>
+    <ul class='user_rooms row justify-content-around'>
+      {% for object in object_list %}
       <li>
       <a class='nav_text' href="{% url 'rooms:detail' object.id %}">{{object.name}}</a>
       </li>
